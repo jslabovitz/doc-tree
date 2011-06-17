@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'doc-tree'
-  s.version       = '0.0.1'
+  s.version       = '0.0.2'
   s.summary       = 'Handles a tree of marked-up documents. Includes a handy Rack app.'
 
   s.author        = 'John Labovitz'
