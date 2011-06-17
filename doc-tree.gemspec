@@ -13,7 +13,11 @@ Gem::Specification.new do |s|
   s.author        = 'John Labovitz'
   s.email         = 'johnl@johnlabovitz.com'
   s.description   = %q{
-    FIXME
+    DocTree handles a tree of marked-up documents. 
+
+    It includes a handy Rack app.
+
+    More documentation is forthcoming.
   }
   s.homepage      = 'http://github.com/jslabovitz/doc-tree'
 
@@ -25,6 +29,6 @@ Gem::Specification.new do |s|
   
   s.required_rubygems_version = '>= 1.6.2'
 
-  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w(README.md)
+  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w(README.mdown)
   s.require_path = 'lib'
 end
