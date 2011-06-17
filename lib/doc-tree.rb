@@ -13,8 +13,6 @@ require 'rack/doc-tree'
 
 module Tree
   
-  VERSION = '0.0.1'
-  
   class TreeNode
     
     def print_tree2(level=0, &block)
@@ -42,6 +40,8 @@ module Tree
 end
 
 module DocTree
+  
+  VERSION = '0.0.1' unless defined?(VERSION)
   
   class Tree
   
