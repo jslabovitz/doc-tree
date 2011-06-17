@@ -40,9 +40,7 @@ module Tree
 end
 
 module DocTree
-  
-  VERSION = '0.0.1' unless defined?(VERSION)
-  
+    
   class Tree
   
     attr_accessor :root

@@ -1,13 +1,8 @@
 # -*- encoding: utf-8 -*-
 
-lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
-
-require 'doc-tree'
-
 Gem::Specification.new do |s|
   s.name          = 'doc-tree'
-  s.version       = DocTree::VERSION
+  s.version       = '0.0.1'
   s.summary       = 'Handles a tree of marked-up documents. Includes a handy Rack app.'
 
   s.author        = 'John Labovitz'
