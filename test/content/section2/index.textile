@@ -1,0 +1,5 @@
+Title: Section 2
+
+Another image: {{img2}}.
+
+A link: [[/section2/sub2a]] and [[/section2/sub2b]].

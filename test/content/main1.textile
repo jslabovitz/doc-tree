@@ -1,0 +1,7 @@
+Title: The main page
+
+Testing.
+
+An image: {{img}}.
+
+A link: [[/main2]].

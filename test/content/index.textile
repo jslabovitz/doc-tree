@@ -1,0 +1,3 @@
+Title: The index page
+
+Foo
