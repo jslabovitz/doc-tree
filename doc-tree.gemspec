@@ -25,6 +25,6 @@ Gem::Specification.new do |s|
   
   s.required_rubygems_version = '>= 1.6.2'
 
-  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w()
+  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w(README.md)
   s.require_path = 'lib'
 end
