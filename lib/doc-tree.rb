@@ -117,12 +117,16 @@ module DocTree
       file_path = Pathname.new(file_path)
       @header = HashStruct.new
       file_path.open do |fh|
-        while (line = fh.readline.chomp) != '' && line =~ /^([A-Za-z\-]+):\s+(.*)/
-          key, value = $1, $2
-          key = key.gsub('-', '_').downcase.to_sym
-          @header[key] = value
+        @text = fh.read
+        loop do
+          break unless @text.sub!(/^([A-Za-z\-]+):\s+(.*)$/) do
+            key, value = $1, $2
+            key = key.gsub('-', '_').downcase.to_sym
+            @header[key] = RedCloth.new(value, [:lite_mode])
+            ''
+          end
         end
-        @text = RedCloth.new(fh.read.strip)
+        @text = RedCloth.new(@text.strip)
       end
       @header.mtime = file_path.mtime.to_datetime
       # @header.date ||= @header.mtime
