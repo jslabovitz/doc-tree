@@ -105,6 +105,17 @@ module DocTree
       end
     end
     
+    # Generates a hash suitable for passing to Rack::SiteMap
+    
+    def sitemap
+      docs.map do |doc|
+        {
+          :path => doc.path,
+          :last_modified => doc.mtime,
+        }
+      end
+    end
+    
   end
   
   class Document
