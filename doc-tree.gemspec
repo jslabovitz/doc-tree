@@ -1,8 +1,13 @@
 # -*- encoding: utf-8 -*-
 
+lib = File.expand_path('../lib/', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'doc-tree'
+
 Gem::Specification.new do |s|
   s.name          = 'doc-tree'
-  s.version       = '0.0.2'
+  s.version       = DocTree::VERSION
   s.summary       = 'Handles a tree of marked-up documents. Includes a handy Rack app.'
 
   s.author        = 'John Labovitz'
