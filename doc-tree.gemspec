@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency  'rubytree',   '~> 0.8.1'
   s.add_dependency  'RedCloth',   '~> 4.2.7'
-  s.add_dependency  'hashstruct', '~> 0.0.1'
+  s.add_dependency  'hashstruct', '~> 0.0.2'
   
   s.add_development_dependency 'wrong'
   
