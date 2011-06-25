@@ -8,11 +8,9 @@ Gem::Specification.new do |s|
   s.author        = 'John Labovitz'
   s.email         = 'johnl@johnlabovitz.com'
   s.description   = %q{
-    DocTree handles a tree of marked-up documents. 
-
-    It includes a handy Rack app.
-
-    More documentation is forthcoming.
+    DocTree handles a tree of document files that have been marked up in Textile. It includes a handy Rack app.
+    It's intended to act as a very simple, small-scale content management system, when you don't need databases
+    or dynamic updates.
   }
   s.homepage      = 'http://github.com/jslabovitz/doc-tree'
 
@@ -22,8 +20,6 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency 'wrong'
   
-  s.required_rubygems_version = '>= 1.6.2'
-
-  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w(README.mdown)
+  s.files        = Dir.glob('{bin,lib,test}/**/*') + %w(README.markdown)
   s.require_path = 'lib'
 end
