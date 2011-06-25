@@ -81,6 +81,14 @@ module DocTree
       @root.map { |n| n.content }.compact
     end
     
+    def select(criteria={}, &block)
+      if block_given?
+        docs.select(&block)
+      else
+        docs.select { |doc| doc.kind_of?(criteria[:class]) if criteria[:class] }
+      end
+    end
+
     def latest
       docs.reject { |d| d.date.nil? }.sort.last
     end
@@ -179,11 +187,11 @@ module DocTree
     end
     
     def more_docs
-      ([@node.parent] + @node.siblings - [@node]).map(&:content)
+      ([@node.parent] + @node.siblings - [@node]).map(&:content).compact
     end
     
     def all_index_docs
-      @node.root.select { |n| n.has_children? }.map(&:content)
+      @node.root.select { |n| n.has_children? }.map(&:content).compact
     end
     
     def other_index_docs

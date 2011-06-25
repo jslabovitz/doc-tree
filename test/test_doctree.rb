@@ -6,12 +6,20 @@ $LOAD_PATH.unshift 'lib'
 
 require 'doc-tree'
 
+class Thing < DocTree::Document
+  
+end
+
 class TreeTest < Test::Unit::TestCase
   
   include Wrong
 
   def setup
-    @tree = DocTree::Tree.new('test/content')
+    @tree = DocTree::Tree.new('test/content',
+      :classes => {
+        '/things' => Thing,
+      }
+    )
   end
   
   def test_doc_exists
@@ -54,6 +62,19 @@ class TreeTest < Test::Unit::TestCase
     doc = @tree['/section1/sub1a']
     other_index_docs_paths = ['/', '/main2', '/section2']
     assert { doc.other_index_docs.map(&:path) == other_index_docs_paths }
+  end
+  
+  def test_custom_classes
+    paths = %w{/things/thing1 /things/thing2}
+    paths.each do |path|
+      doc = @tree[path]
+      assert { doc.kind_of?(Thing) }
+    end
+    things = @tree.select(:class => Thing)
+    assert { !things.empty? }
+    assert { things.map(&:path) == paths }
+    things = @tree.select { |doc| doc.title == 'Thing 1' }
+    assert { things.first == @tree['/things/thing1'] }
   end
   
 end
