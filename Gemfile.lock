@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jslabovitz/hashstruct.git
-  revision: b1f4fcd71594ffb5d44a361e85a0dec498326004
+  revision: 9c94466a1d8b68c596a9f853727b4ee9897e29ff
   specs:
     hashstruct (0.0.2)
 
