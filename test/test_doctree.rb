@@ -77,4 +77,10 @@ class TreeTest < Test::Unit::TestCase
     assert { things.first == @tree['/things/thing1'] }
   end
   
+  def test_to_html
+    doc = @tree['/main1']
+    html = Nokogiri(doc.to_html)
+    assert { html.at_xpath('//title').text == 'The main page' }
+  end
+  
 end

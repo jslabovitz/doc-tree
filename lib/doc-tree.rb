@@ -7,6 +7,7 @@ require 'fileutils'
 require 'tree'
 require 'RedCloth'
 require 'hashstruct'
+require 'nokogiri'
 
 # local
 require 'rack/doc-tree'
@@ -161,7 +162,17 @@ module DocTree
     end
 
     def to_html
-      @text.to_html
+      builder = Nokogiri::HTML::Builder.new do |html|
+        html.html do
+          html.head do
+            html.title { html << title.to_html }
+          end
+          html.body do
+            html << @text.to_html
+          end
+        end
+      end
+      builder.to_html
     end
       
     def title
