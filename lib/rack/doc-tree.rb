@@ -13,7 +13,7 @@ module Rack
     
     def call(env)
       request = Rack::Request.new(env)
-      if request.method == 'GET' || request.method == 'HEAD'
+      if request.get? || request.head?
         path = Pathname.new(request.path_info).cleanpath.to_s
         if path == @redirect_to_latest_from_path
           doc = @tree.latest
