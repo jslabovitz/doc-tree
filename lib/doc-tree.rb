@@ -165,7 +165,7 @@ module DocTree
       builder = Nokogiri::HTML::Builder.new do |html|
         html.html do
           html.head do
-            html.title { html << title.to_html }
+            html.title { html << title.to_html } if title
           end
           html.body do
             html << @text.to_html
